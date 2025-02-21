@@ -70,6 +70,4 @@ references/
 __pypackages__/
 .venv/
 requirements.lock
-.venv-3.12/
-.venv-3.13/
 

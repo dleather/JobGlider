@@ -1,5 +1,8 @@
+# Environment & Dependencies
 .env
 node_modules
+requirements.lock
+uv.lock
 
 # Python
 __pycache__/
@@ -22,11 +25,17 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+.pytest_cache/
+.coverage
 
 # Virtual Environment
 venv/
 ENV/
 env/
+.venv/
+.venv-3.12/
+.venv-3.13/
+__pypackages__/
 
 # LaTeX
 *.aux
@@ -58,16 +67,13 @@ codeweaver_output/
 cover_letters/
 *.pdf
 *.docx
-
 codebase.md
-
 run_codeweaver.sh
-
 references/
+logs/
 
 # UV
 .uv/
 __pypackages__/
-.venv/
-requirements.lock
+
 

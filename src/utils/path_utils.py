@@ -1,12 +1,5 @@
-import os
 from pathlib import Path
-from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv()
-BASE_DOCKER_PATH = os.getenv("BASE_DOCKER_PATH", "/app")
-BASE_LOCAL_PATH = os.getenv("BASE_LOCAL_PATH", "C:/Users/davle/Dropbox (Personal)")
-
+from src.utils.config import BASE_DOCKER_PATH, BASE_LOCAL_PATH  
 
 def docker_to_local_path(docker_path: str,
                          base_docker_path: str = BASE_DOCKER_PATH,

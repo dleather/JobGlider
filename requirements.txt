@@ -36,5 +36,7 @@ python-dateutil
 
 # Development Tools
 pytest
+pytest-cov
 black
 ruff
+responses

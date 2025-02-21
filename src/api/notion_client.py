@@ -1,5 +1,5 @@
-import logging
-import os
+# src/api/notion_client.py
+
 from pathlib import Path
 from notion_client import APIResponseError
 from dateutil import parser as date_parser

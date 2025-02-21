@@ -1,3 +1,4 @@
+# src/core/document_handler.py
 import os
 from datetime import datetime
 from docx import Document
@@ -44,7 +45,8 @@ def save_cover_letter_documents(job_details, cover_letter):
     logger.info(f"Saved Word document: {doc_path}")
     
     # Create LaTeX document using Jinja2 template
-    env = Environment(loader=FileSystemLoader('.'))
+    template_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'templates', 'latex')
+    env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template('awesome_cv_cover_letter_template.tex')
    
     logger.info(f"Loaded LaTeX template: awesome_cv_cover_letter_template.tex")

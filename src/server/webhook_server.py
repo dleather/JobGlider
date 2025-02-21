@@ -5,28 +5,14 @@ from openai import OpenAI
 from notion_client import Client
 import os
 from docx import Document
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.enums import TA_LEFT, TA_CENTER
-from reportlab.lib.enums import TA_JUSTIFY
-from reportlab.lib.units import inch
-from notion_client import APIResponseError
+import json
+import logging
+import subprocess
 from datetime import datetime
-import requests
-from bs4 import BeautifulSoup
+import shutil
+from notion_client import APIResponseError
 from dateutil import parser as date_parser
 from dotenv import load_dotenv
-import logging
-from reportlab.lib.fonts import addMapping
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.lib.colors import black
-from PyPDF2 import PdfReader
-from jinja2 import Environment, FileSystemLoader
-import subprocess
-import json
 import re
 from typing import List, Dict
 

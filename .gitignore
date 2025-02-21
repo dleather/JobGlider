@@ -65,3 +65,11 @@ run_codeweaver.sh
 
 references/
 
+# UV
+.uv/
+__pypackages__/
+.venv/
+requirements.lock
+.venv-3.12/
+.venv-3.13/
+

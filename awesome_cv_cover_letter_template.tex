@@ -1,0 +1,69 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% If you need to use additional packages, add them here
+\usepackage{geometry}
+\usepackage{fontspec}
+\usepackage{hyperref}
+
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+\colorlet{awesome}{awesome-red}
+\setbool{acvSectionColorHighlight}{true}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\name{
+    {{ first_name }}}{
+        {{ last_name }}}
+\position{
+    {{ position }}}
+\address{
+    {{ address }}}
+\mobile{
+    {{ phone }}}
+\email{
+    {{ email }}}
+\homepage{
+    {{ website }}}
+\github{
+    {{ github }}}
+\linkedin{
+    {{ linkedin }}}
+
+\recipient{
+    {{ recipient }}}{
+        {{ company_address }}}
+\letterdate{
+    {{ date }}}
+\lettertitle{
+    {{ job_title }}}
+\letteropening{
+    {{ opening }}}
+\letterclosing{Sincerely,}
+\letterenclosure[Attached]{Curriculum Vitae}
+
+\newfontfamily{\FA}{FontAwesome5Free-Solid-900.otf}[Path=/usr/local/share/fonts/FontAwesome/]
+
+\begin{document}
+
+\makecvheader[C]
+
+\makecvfooter
+  {
+    {{ date }}}
+  {
+    {{ first_name }} {{ last_name }}~~~·~~~Cover Letter}
+  {}
+
+\makelettertitle
+
+\begin{cvletter}
+
+{{ cover_letter_content }}
+
+\end{cvletter}
+
+\makeletterclosing
+
+\end{document}

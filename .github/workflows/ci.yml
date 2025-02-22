@@ -25,7 +25,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv pip install
+          uv compile --requirements requirements.txt
+          uv sync
 
       - name: Run tests with coverage
         run: |

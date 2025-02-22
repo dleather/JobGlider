@@ -68,7 +68,7 @@ cover_letters/
 *.pdf
 *.docx
 codebase.md
-run_codeweaver.sh
+run_codeweaver.bat
 references/
 logs/
 

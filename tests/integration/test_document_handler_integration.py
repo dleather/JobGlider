@@ -6,6 +6,7 @@ import shutil
 import tempfile
 from pathlib import Path
 from unittest.mock import patch, MagicMock
+import subprocess
 
 from src.core.document_handler import save_cover_letter_documents
 
@@ -19,11 +20,25 @@ def test_save_cover_letter_documents_happy_path(job_details_fixture,
     """
     # Patch the COVER_LETTERS_DIR so our function writes into our temp_output_dir
     with patch("src.core.document_handler.COVER_LETTERS_DIR", temp_output_dir), \
-         patch("jinja2.Environment.get_template") as mock_get_template:
+         patch("jinja2.Environment.get_template") as mock_get_template, \
+         patch("subprocess.run") as mock_run:
         
+        # Configure mock to simulate a successful xelatex run
+        mock_run.return_value = subprocess.CompletedProcess(
+            args=['xelatex', '-output-directory', temp_output_dir, "dummy.tex"],
+            returncode=0,
+            stdout="LaTeX compilation successful",
+            stderr=""
+        )
+
         # Mock the template loading
         mock_template = MagicMock()
-        mock_template.render.return_value = "\\documentclass{article}\n\\begin{document}\nTest Content\n\\end{document}"
+        mock_template.render.return_value = (
+            "\\documentclass{article}\n"
+            "\\begin{document}\n"
+            "Test Content\n"
+            "\\end{document}"
+        )
         mock_get_template.return_value = mock_template
 
         folder_path, doc_path, pdf_path = save_cover_letter_documents(

@@ -1,8 +1,9 @@
 # Web Framework & API
-Flask
+Flask==2.3.3
 requests
 Flask-HTTPAuth
 gunicorn
+Werkzeug==2.3.7
 
 # AI/LLM Tools
 openai

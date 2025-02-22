@@ -68,6 +68,9 @@ def test_answer_question(mock_tokenizer, mock_model, mock_model_output):
     # Setup tokenizer and model mocks
     # 1) The tokenizer(...) call
     mock_tokenizer.return_value = {"input_ids": [[101, 102, 103]], "something": "dummy"}
+    # Ensure tokenizer.decode returns a string
+    mock_tokenizer.decode.return_value = "Developer"
+    
     # 2) The model(...) call
     mock_model.__enter__ = MagicMock(return_value=mock_model)
     mock_model.__exit__ = MagicMock()
@@ -79,7 +82,6 @@ def test_answer_question(mock_tokenizer, mock_model, mock_model_output):
     # Assertions
     assert "answer" in result
     assert "confidence" in result
-    # For example, we might check if the "answer" is a string:
     assert isinstance(result["answer"], str)
     assert isinstance(result["confidence"], float)
 

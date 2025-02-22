@@ -176,7 +176,8 @@ def answer_question(question: str, context: str) -> Dict[str, float]:
     # Remove special tokens from the answer
     answer = answer.replace("<s>", "").replace("</s>", "").strip()
     
-    return {"answer": answer, "confidence": confidence.item()}
+    # Convert confidence to float explicitly
+    return {"answer": answer, "confidence": float(confidence.item())}
 
 def clean_job_details(job_details):
     """

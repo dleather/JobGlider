@@ -14,6 +14,7 @@ import tempfile
 from tests.fake_notion import FakeNotionClient
 from src.api import notion_client
 from src.server.webhook_server import app
+import torch
 
 @pytest.fixture
 def mock_notion_client():
@@ -125,9 +126,8 @@ def mock_model_output():
     Return a mock object simulating model output for `answer_question`.
     """
     mock_output = MagicMock()
-    # The model's start_logits/end_logits can be faked:
-    mock_output.start_logits = [0, 0, 10]  # example
-    mock_output.end_logits = [0, 0, 12]
+    mock_output.start_logits = torch.tensor([0, 0, 10])  # Convert to tensor
+    mock_output.end_logits = torch.tensor([0, 0, 12])
     return mock_output
 
 @pytest.fixture(scope="session", autouse=True)

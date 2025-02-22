@@ -28,6 +28,9 @@ jobs:
           uv pip compile requirements.txt -o requirements.lock
           uv pip sync requirements.lock --system
 
+      - name: Create logs directory
+        run: mkdir -p logs
+
       - name: Run tests with coverage
         run: |
           uv run pytest --maxfail=1 --disable-warnings -v --cov=src --cov-report=term-missing

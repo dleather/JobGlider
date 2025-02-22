@@ -35,7 +35,8 @@ jobs:
         run: |
           uv run pytest --maxfail=1 --disable-warnings -v --cov=src --cov-branch --cov-report=xml
       
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}  # Not required for public repositories
+            token: ${{ secrets.CODECOV_TOKEN }}
+            slug: dleather/JobGlider

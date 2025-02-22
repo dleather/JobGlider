@@ -1,5 +1,8 @@
 # Automated Cover Letter Generator
 
+[![CI](https://github.com/dleather/JobGlider/actions/workflows/ci.yml/badge.svg)](https://github.com/dleather/JobGlider/actions)
+[![codecov](https://codecov.io/gh/dleather/JobGlider/branch/main/graph/badge.svg)](https://codecov.io/gh/dleather/JobGlider)
+
 Automated pipeline for creating personalized cover letters:
 
 - Data Collection: Clipping job postings from Notion (or another source).

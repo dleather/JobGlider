@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv pip compile --requirements.txt -o requirements.lock
+          uv pip compile requirements.txt -o requirements.lock
           uv pip sync requirements.lock
 
       - name: Run tests with coverage
